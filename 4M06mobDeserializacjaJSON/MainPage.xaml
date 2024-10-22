@@ -12,6 +12,11 @@
                    x:Name="lblJSON"
                    FontSize="40"
                    />
+            <DatePicker
+                x:Name="dpData"
+                MinimumDate="2003-02-01"
+                />
+            
             <Button
                 Text="Pobierz dane"
                 Clicked="btnGetDataClicked"

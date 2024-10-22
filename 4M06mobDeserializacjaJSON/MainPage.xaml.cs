@@ -24,11 +24,15 @@ namespace _4M06mobDeserializacjaJSON
         public MainPage()
         {
             InitializeComponent();
+            DateTime dzis = DateTime.Now;
+            dpData.MaximumDate = dzis;
         }
 
         private void btnGetDataClicked(object sender, EventArgs e)
         {
-            string url = "https://api.nbp.pl/api/exchangerates/rates/c/usd/2024-10-22/?format=json";
+            string data = dpData.Date.ToString("yyyy-MM-dd");
+            string url = "https://api.nbp.pl/api/exchangerates/rates/c/usd/"+data+"/?format=json";
+            //string url = "https://api.nbp.pl/api/exchangerates/rates/c/usd/2024-10-22/?format=json";
             string json;
             using(var webClient = new WebClient())
             {
