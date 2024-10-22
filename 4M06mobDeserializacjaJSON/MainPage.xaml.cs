@@ -8,10 +8,16 @@ namespace _4M06mobDeserializacjaJSON
         public string? table { get; set; }
         public string? currency { get; set; }
         public string? code { get; set; }
-
+        public IList<Rate> rates { get; set; }
     }
-    
-    public partial class MainPage : ContentPage
+    public class Rate
+    {
+        public string? no { get; set; }
+        public string? effectiveDate { get; set; }
+        public double? bid { get; set; }
+        public double? ask { get; set; }
+    }
+        public partial class MainPage : ContentPage
     {
        
 
@@ -33,6 +39,9 @@ namespace _4M06mobDeserializacjaJSON
 
             string s = $"nazwa waluty: {c.currency}\n";
             s += $"kod waluty {c.code}\n";
+            s += $"Data: {c.rates[0].effectiveDate} \n";
+            s += $"Cena skupu: {c.rates[0].bid} \n";
+            s += $"Cena sprzedazy: {c.rates[0].ask} \n";
             lblJSON.Text = s;
         }
 
